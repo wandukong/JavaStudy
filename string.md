@@ -1,4 +1,5 @@
 
+
 # String
 
 ## 🍺method
@@ -66,8 +67,22 @@ s = s.trim();
 ```
 <hr />
 
-
 **문자열 주소 반환** 
 ```java
 s.hashCode();
 ```
+
+
+## 🍹String.split() vs StringTokenizer()
+
+
+- 구분자 사이에 데이터가 없는 경우, split만 공백 데이터를 반환한다.
+```java
+String str = "apple,banana,,kiwi";
+str.split(",") // "apple" "bababa" "" "kiwi"  4개
+st = StringTokenizer(str, ",");  // "apple" "bababa" "kiwi" : 3개
+st.countTokens() 
+ ```
+
+
+
