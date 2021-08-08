@@ -3,8 +3,8 @@
 ```java
 Queue<자료형> q = new Queue<자료형>(); // 선언
 q.offer(데이터); // 데이터 추가
-while(!st.empty()){
-	System.out.println(st.poll());  // 데이터 반환
+while(!q.empty()){
+	System.out.println(q.poll());  // 데이터 반환
 }
 ```
 ```java
