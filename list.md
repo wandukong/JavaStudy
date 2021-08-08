@@ -6,13 +6,13 @@
  - ArrayList, Vector, LinkedList, Stack, Queue 등이 있다.
 
 ## 🏃‍♂️ArrayList
-- 비동기화 (비동기화이기 때문에 Vector보다 빠르다. Vector는 동기화이다. )
+- 비동기식으로서, 여러 스레드가 동시 작업이 가능하다. (비동기화이기 때문에 Vector보다 빠르다. Vector는 동기화이다. )
  - 데이터 검색 시 굉장히 빠르다. get(int index)를 통해 O(1)의 시간 복잡도
  - 일반적으로 데이터 삽입/삭제에 LinkedList에 비해 느리다. 최악의 경우 O(N)의 시간 복잡도
 -  대량의 데이터 삽입/삭제에 수월하다. (소량은 LinkedList가 빠르다)
 
 ## 🧘‍♂️Vector
-- 동기화 (동기화이기 때문에 ArrayList보다 느리다.
+- 동기식로서, 한 스레드가 작업 중이면 다른 스레드가 작업 불가능하다. (동기화이기 때문에 ArrayList보다 느리다.
  - 데이터 검색 시 굉장히 빠르다. get(int index)를 통해 O(1)의 시간 복잡도
  - 일반적으로 데이터 삽입/삭제에 LinkedList에 비해 느리다. 최악의 경우 O(N)의 시간 복잡도
 -  대량의 데이터 삽입/삭제에 수월하다. (소량은 LinkedList가 빠르다)
@@ -95,3 +95,8 @@ al.capacity();
 ```java
 al.trimToSize();
 ```
+
+## 🚴‍♀️Array와 ArraryList 차이
+- Array는 크기가 고정되어 있지만, ArrayList는 사이즈가 동적이다.
+- Array는 int, byte, char 등과 같은 Primitive type과 Object 모두 담을 수 있지만, ArrayList는 Object만 담을 수 있다.
+- Array는 길이에 대해서 length 변수를 쓰고, ArrayList는 size() 메서드를 사용한다.
