@@ -1,3 +1,4 @@
+
 # Class
 
 ## 🍩상속 (inheritance)
@@ -34,6 +35,56 @@ class Dog extends Animal{
 		...
 	}
 }
+```
+
+### 형변환
+```java
+public abstract class Shape { // 추상 클래스
+	double result = 0;
+	public abstract double calc();
+	public abstract void show(String name);
+	
+	public void go() {
+		System.out.println("가자아");
+	}
+}
+```
+```java
+public class Circle2 extends Shape{
+
+	double r = 5.0;
+	
+	@Override
+	public double calc() {
+		result = r*r*Math.PI;
+		return result;
+	}
+
+	@Override
+	public void show(String name) {
+		calc();
+		System.out.println(name + "의 넓이 : " + result + "인 "+ name +"을 그렸습니다.");
+	}
+	
+	public void draw() {
+		calc();
+		System.out.println("원의 넓이 : " + result + "인 원을 그렸습니다.");
+	}
+}
+
+```
+```java
+// 1. 각 클래스로 객체 생성 방법
+System.out.println("===방법1===");
+Triangle t = new Triangle(); // 단 상속 받은 자손 클래스로는 객체를 생성할 수 있다.
+t.draw();
+
+// 2. Shape 부모 추상 클래스 이용해서 객체 생성하기 
+System.out.println("===방법2===");
+Shape s = new Circle2();
+s.show("Circle"); 	// 오버라이딩된 메소드는 사용 가능
+s.go(); 			// 부모 클래스의 메소드
+// s.draw(); 에러    // 자식 클래스에만 생성된 메소드
 ```
 
 ## 🍪인터페이스 (Interface)
@@ -78,22 +129,44 @@ interface C{
 class Multi extends S implements B,C,A{ // 무조건 extends 먼저 선언하고, implements가 선언되어야 한다.
 
 	@Override
-	public void draw() { // interface C
-		...
-	}
+	public void draw() {} // interface C
 
 	@Override
-	public void bView() { interface B
-		...
-	}
+	public void bView() {} // interface B
 
 	@Override
-	public void show() { // interface A
-		...
-	}
+	public void show() {} // interface A
+	
 	@Override
-	public void disp() { // interface A
-		...
+	public void disp() {}  // interface A
+}
+```
+
+### 형변환
+```java
+class R implements D{
+	@Override
+	public void bView() {}
+	
+	@Override
+	public void dView() {}
+	
+	public void rVeiw() {
+		System.out.println("Rect view");
 	}
+}
+```
+
+```java
+public static void main(String[] args)
+{
+	// 1. 자신으로 객체 생성
+	R r1 = new R();
+	
+	// 2. 부모로 객체 생성 (형변환 : 업 캐스팅)
+	D r2 = new R();
+	B r3 = new R();
+	// r2.rView(); 자식의 메소드는 사용할 수 없다.
+	// r3.rView(); 자식의 메소드는 사용할 수 없다.
 }
 ```
